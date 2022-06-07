@@ -1,5 +1,8 @@
 name: 'build-delga'
 description: 'Build DELGA distribution file using DEIGDE CI'
+branding:
+  icon: 'box'
+  color: 'purple'
 inputs:
   projectFile:
     description: 'Path to the project-file to use (*.degp), within the repository.'
