@@ -16,7 +16,7 @@ has run successfully the *.delga file is present in the path set in the profile.
 
 ## Example usage
 
-uses: actions/build-delga@v1
+uses: LordOfDragons/build-delga@v1
 with:
   projectFile: 'MyGame.degp'
   profile: 'Release'
