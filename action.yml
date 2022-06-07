@@ -1,4 +1,4 @@
-name: 'github-action-deigde-ci'
+name: 'build-delga'
 description: 'Build DELGA distribution file using DEIGDE CI'
 inputs:
   projectFile:
