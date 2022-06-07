@@ -13,6 +13,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.projectFile }}
+    - /github/workspace/${{ inputs.projectFile }}
     - --project.profile.distribute
     - ${{ inputs.profile }}
