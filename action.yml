@@ -1,0 +1,18 @@
+name: 'github-action-deigde-ci'
+description: 'Build DELGA distribution file using DEIGDE CI'
+inputs:
+  projectFile:
+    description: 'Path to the project-file to use (*.degp), within the repository.'
+    required: true
+    default: 'project.degp'
+  profile:
+    description: 'Name of profile to use.'
+    required: true
+    default: 'Release'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.projectFile }}
+    - --project.profile.distribute
+    - ${{ inputs.profile }}
