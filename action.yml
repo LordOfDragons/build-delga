@@ -14,7 +14,7 @@ inputs:
     default: 'Release'
 runs:
   using: 'docker'
-  image: 'lordofdragons/deigde-ci:latest'
+  image: 'docker://lordofdragons/deigde-ci:latest'
   #image: 'Dockerfile'
   args:
     - /github/workspace/${{ inputs.projectFile }}
