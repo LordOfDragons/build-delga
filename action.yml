@@ -12,17 +12,19 @@ inputs:
     description: 'Name of profile to use.'
     required: true
     default: 'Release'
-  logDir:
-    description: 'Directory to store log files in.'
+  outputDir:
+    description: 'Directory to store run outputs.'
     required: false
-    default: '${{ github.workspace }}/logs'
+    default: 'deigde-output'
 runs:
+  runs-on: ubuntu-latest
   steps:
-    - name: Run DEIGDE
-      uses: docker://lordofdragons/deigde-ci:latest
-      volumes:
-        - ${{ inputs.logDir }}:~/.config/deigde/logs
-      args:
-        - /github/workspace/${{ inputs.projectFile }}
-        - --project.profile.distribute
-        - ${{ inputs.profile }}
+    name: Run IGDE-CI
+    run: |
+      docker run --rm --workdir /github/workspace \
+        -v "${{ github.workspace }}":"/github/workspace" \
+        -v "${{ github.workspace }}/${{ inputs.outputDir }}":"/opt/deigde-output" \
+          lordofdragons/deigde-ci:latest \
+            "/github/workspace/${{ inputs.projectFile }}" \
+            --project.profile.distribute \
+            "${{ inputs.profile }}"
