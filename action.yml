@@ -13,10 +13,11 @@ inputs:
     required: true
     default: 'Release'
 runs:
-  using: 'docker'
-  image: 'docker://lordofdragons/deigde-ci:latest'
-  #image: 'Dockerfile'
-  args:
-    - /github/workspace/${{ inputs.projectFile }}
-    - --project.profile.distribute
-    - ${{ inputs.profile }}
+  container:
+    image: docker://lordofdragons/deigde-ci:latest
+    volumes:
+      - ${{ github.workspace }}/logs:~/.config/deigde/logs
+    args:
+      - /github/workspace/${{ inputs.projectFile }}
+      - --project.profile.distribute
+      - ${{ inputs.profile }}
