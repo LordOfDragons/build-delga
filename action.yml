@@ -17,6 +17,6 @@ runs:
   image: 'docker://lordofdragons/deigde-ci:latest'
   #image: 'Dockerfile'
   args:
-    - "\"/github/workspace/${{ inputs.projectFile }}\""
+    - /github/workspace/${{ inputs.projectFile }}
     - --project.profile.distribute
     - ${{ inputs.profile }}
