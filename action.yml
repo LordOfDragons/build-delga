@@ -12,11 +12,15 @@ inputs:
     description: 'Name of profile to use.'
     required: true
     default: 'Release'
+  logDir:
+    description: 'Directory to store log files in.'
+    required: false
+    default: '${{ github.workspace }}/logs'
 runs:
   container:
     image: docker://lordofdragons/deigde-ci:latest
     volumes:
-      - ${{ github.workspace }}/logs:~/.config/deigde/logs
+      - ${{ inputs.logDir }}:~/.config/deigde/logs
     args:
       - /github/workspace/${{ inputs.projectFile }}
       - --project.profile.distribute
