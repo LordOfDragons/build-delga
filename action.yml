@@ -17,7 +17,6 @@ inputs:
     required: false
     default: 'deigde-output'
 runs:
-  runs-on: ubuntu-latest
   steps:
     name: Run IGDE-CI
     run: |
