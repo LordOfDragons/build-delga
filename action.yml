@@ -28,3 +28,4 @@ runs:
             "/github/workspace/${{ inputs.projectFile }}" \
             --project.profile.distribute \
             "${{ inputs.profile }}"
+      exit `cat "${{ github.workspace }}/${{ inputs.outputDir }}/exitcode"`
