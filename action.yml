@@ -17,11 +17,12 @@ inputs:
     required: false
     default: '${{ github.workspace }}/logs'
 runs:
-  container:
-    image: docker://lordofdragons/deigde-ci:latest
-    volumes:
-      - ${{ inputs.logDir }}:~/.config/deigde/logs
-    args:
-      - /github/workspace/${{ inputs.projectFile }}
-      - --project.profile.distribute
-      - ${{ inputs.profile }}
+  steps:
+    - name: Run DEIGDE
+      uses: docker://lordofdragons/deigde-ci:latest
+      volumes:
+        - ${{ inputs.logDir }}:~/.config/deigde/logs
+      args:
+        - /github/workspace/${{ inputs.projectFile }}
+        - --project.profile.distribute
+        - ${{ inputs.profile }}
