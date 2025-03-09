@@ -27266,11 +27266,13 @@ function requireAction () {
 	  const projectFile = core.getInput("projectFile", { required: true });
 	  const profile = core.getInput("profile", { required: true });
 	  const outputDir = core.getInput("outputDir") ?? "deigde-output";
+	  /*
 	  core.info(`Parameters:`);
 	  core.info(`- workspace: ${workspace}`);
 	  core.info(`- projectFile: ${projectFile}`);
 	  core.info(`- profile: ${profile}`);
 	  core.info(`- outputDir: ${outputDir}`);
+		*/
 
 	  if (!fs.existsSync(outputDir)) {
 	    fs.mkdirSync(outputDir, { recursive: true });
@@ -27288,7 +27290,7 @@ function requireAction () {
 	  cmd.push(`"/github/workspace/${projectFile}"`);
 	  cmd.push("--project.profile.distribute");
 	  cmd.push(`"${profile}"`);
-	  core.info(`command: ${cmd.join(" ")}`);
+	  //core.info(`command: ${cmd.join(" ")}`);
 	  cp.execSync(cmd.join(" "), { stdio: "inherit" });
 
 	  fs.readFile(`${workspace}/${outputDir}/exitcode`, "utf8", (err, data) => {
