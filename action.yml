@@ -1,21 +1,21 @@
-name: 'build-delga'
-description: 'Build DELGA distribution file using DEIGDE CI'
+name: "build-delga"
+description: "Build DELGA distribution file using DEIGDE CI"
 branding:
-  icon: 'box'
-  color: 'purple'
+  icon: "box"
+  color: "purple"
 inputs:
   projectFile:
-    description: 'Path to the project-file to use (*.degp), within the repository.'
+    description: "Path to the project-file to use (*.degp), within the repository."
     required: true
-    default: 'project.degp'
+    default: "project.degp"
   profile:
-    description: 'Name of profile to use.'
+    description: "Name of profile to use."
     required: true
-    default: 'Release'
+    default: "Release"
   outputDir:
-    description: 'Directory to store run outputs.'
+    description: "Directory to store run outputs."
     required: false
-    default: 'deigde-output'
+    default: "deigde-output"
 runs:
-  using: 'node20'
-  main: 'action.js'
+  using: "node20"
+  main: "dist/action.js"

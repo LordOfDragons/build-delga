@@ -4,14 +4,14 @@ This action builds DELGA distribution file from checkout out project repository.
 DELGA files are the distribution format of game projects build using the
 [Drag[en]gine Game Engine](https://dragondreams.ch/?page_id=152)
 
-Specify the project file (*.degp) and the profile name to use. After the action
-has run successfully the *.delga file is present in the path set in the profile.
+Specify the project file (_.degp) and the profile name to use. After the action
+has run successfully the _.delga file is present in the path set in the profile.
 
 ## Inputs
 
 ## `projectFile`
 
-**Required** Path to the project-file to use (*.degp), within the repository. Default `"project.degp"`.
+**Required** Path to the project-file to use (\*.degp), within the repository. Default `"project.degp"`.
 
 ## `profile`
 
