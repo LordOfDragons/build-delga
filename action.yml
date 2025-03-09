@@ -17,13 +17,5 @@ inputs:
     required: false
     default: 'deigde-output'
 runs:
-  using: 'bash'
-  run: |
-    docker run --rm --workdir /github/workspace \
-      -v "${{ github.workspace }}":"/github/workspace" \
-      -v "${{ github.workspace }}/${{ inputs.outputDir }}":"/opt/deigde-output" \
-        lordofdragons/deigde-ci:latest \
-          "/github/workspace/${{ inputs.projectFile }}" \
-          --project.profile.distribute \
-          "${{ inputs.profile }}"
-    exit `cat "${{ github.workspace }}/${{ inputs.outputDir }}/exitcode"`
+  using: 'node20'
+  main: 'action.js'
