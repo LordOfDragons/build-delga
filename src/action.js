@@ -14,6 +14,10 @@ try {
   core.info(`- profile: ${profile}`);
   core.info(`- outputDir: ${outputDir}`);
 
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
   let cmd = [];
   cmd.push("docker");
   cmd.push("run");
