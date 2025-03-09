@@ -17,11 +17,20 @@ has run successfully the _.delga file is present in the path set in the profile.
 
 **Required** Name of profile to use. Default `"Release"`.
 
+## `outputDir`
+
+**Optional** Name of deigde output directory to use. Default `"deigde-output"`.
+This directory is used to store the log files (`deigde.log`) as well as the exit code
+of the deigde run (`exitcode`). Exit code is 0 on success and another value on failure.
+If building fails the `deigde.log` file can be examined. It is recommended to always
+output this file as artifact. This way a second build just to get the log file is not needed.
+
 ## Example usage
 
 ```
-uses: LordOfDragons/build-delga@v1
+uses: LordOfDragons/build-delga@v2
 with:
   projectFile: 'MyGame.degp'
   profile: 'Release'
+  outputDir: 'deigde-output'
 ```
