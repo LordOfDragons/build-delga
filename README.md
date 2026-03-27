@@ -28,9 +28,14 @@ output this file as artifact. This way a second build just to get the log file i
 ## Example usage
 
 ```
-uses: LordOfDragons/build-delga@v2
+uses: LordOfDragons/build-delga@v3
 with:
   projectFile: 'MyGame.degp'
   profile: 'Release'
   outputDir: 'deigde-output'
 ```
+
+## Changelog
+
+v3:
+-Updated to Node24 as runtime requirement
