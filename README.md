@@ -38,4 +38,4 @@ with:
 ## Changelog
 
 v3:
--Updated to Node24 as runtime requirement
+- Updated to Node24 as runtime requirement
